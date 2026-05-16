@@ -335,12 +335,6 @@ phase1_preflight() {
   info "Updating package lists..."
   spin "Updating package lists (apt-get update)" -- bash -c 'apt-get update -qq'
 
-  spin "Installing base dependencies (curl, git, jq, dig, openssl, ...)" -- bash -c '
-    DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
-      curl wget git socat ufw jq openssl uuid-runtime netcat-openbsd \
-      build-essential ca-certificates gnupg lsb-release dnsutils unzip lsof
-  '
-
   if ! command -v node &>/dev/null; then
     spin "Adding NodeSource repo" -- bash -c 'curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -'
     spin "Installing Node.js LTS (~30s, downloading ~30MB)" -- bash -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y -qq nodejs'
