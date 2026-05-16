@@ -12,7 +12,7 @@ set -euo pipefail
 readonly AVC_BUILD_ID="avc-7f3a92e1-2025-avacocloud"
 export AVC_BUILD_ID
 
-REPO_URL="https://github.com/avacocloud/XHTTP-Installer.git"
+REPO_URL="https://github.com/r-mzy47/XHTTP-Installer.git"
 TARGET_DIR="/root/XHTTP-Installer"
 BRANCH="main"
 
