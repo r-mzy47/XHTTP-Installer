@@ -335,14 +335,6 @@ phase1_preflight() {
   info "Updating package lists..."
   spin "Updating package lists (apt-get update)" -- bash -c 'apt-get update -qq'
 
-  if ! command -v node &>/dev/null; then
-    spin "Adding NodeSource repo" -- bash -c 'curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -'
-    spin "Installing Node.js LTS (~30s, downloading ~30MB)" -- bash -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y -qq nodejs'
-    ok "Node.js $(node -v) installed"
-  else
-    ok "Node.js $(node -v) already present"
-  fi
-
   # ── Ensure swap for low-RAM VPS (npm install -g netlify-cli OOMs on <2GB without swap)
   local total_mem_mb swap_mb
   total_mem_mb=$(awk '/MemTotal/ {print int($2/1024)}' /proc/meminfo 2>/dev/null || echo 0)
