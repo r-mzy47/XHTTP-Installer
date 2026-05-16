@@ -42,7 +42,7 @@ drain_process_substitution_source() {
 # Auto-download the full repo into /opt/xhttp-installer and re-exec from there.
 if [[ -z "$SCRIPT_DIR" || ! -d "${SCRIPT_DIR}/deploy" ]]; then
   REPO_DIR="/opt/xhttp-installer"
-  REPO_URL="https://github.com/avacocloud/XHTTP-Installer.git"
+  REPO_URL="https://github.com/r-mzy47/XHTTP-Installer.git"
   echo ">> Detected remote-piped run — fetching full repo to ${REPO_DIR}..."
   if [[ ! -d "$REPO_DIR/.git" ]]; then
     if command -v git >/dev/null 2>&1; then
